@@ -78,13 +78,9 @@ pipeline {
                  }
              }
          }
-	 stage("Trigger CD Pipeline") {
-            steps {
-                script {
-                    sh "curl -v -k --user timur-ginayatov:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://34.162.189.65:8080/job/Reddit-Clone-CD/buildWithParameters?token=gitops-token'"
-                }
-            }
-         }
+
+
+	    
      }
      post {
         always {
