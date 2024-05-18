@@ -78,24 +78,7 @@ pipeline {
                  }
              }
          }
-	 stage("Trigger CD Pipeline") {
-            steps {
-                script {
-                    sh "curl -v -k --user clouduser:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://34.162.189.65/:8080/job/Reddit-Clone-CD/buildWithParameters?token=gitops-token'"
-                }
-            }
-         }
-     }
-     post {
-        always {
-           emailext attachLog: true,
-               subject: "'${currentBuild.result}'",
-               body: "Project: ${env.JOB_NAME}<br/>" +
-                   "Build Number: ${env.BUILD_NUMBER}<br/>" +
-                   "URL: ${env.BUILD_URL}<br/>",
-               to: 'timur.ginayatov@gmail.com',                              
-               attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
-        }
-     }
+    }
+	 
     
 }
