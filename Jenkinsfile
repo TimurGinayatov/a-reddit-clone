@@ -97,8 +97,6 @@ pipeline {
                to: 'timur.ginayatov@gmail.com',                              
                attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
-     }   
-    
-    }	 
+     }   	 
     
 }
